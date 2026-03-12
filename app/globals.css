@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: #0a0a0a;
+  color: #f5f0e8;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.84), rgba(26, 26, 26, 0.4));
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent, #c9a84c, #f0d080, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+  animation: shimmer-line 1.5s linear infinite;
+}
+
+.glitter-text {
+  background: linear-gradient(100deg, #c9a84c 0%, #f0d080 30%, #fff4cf 50%, #c9a84c 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glitter 4s linear infinite;
+}
+
+.gold-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #c9a84c, #f0d080, #c9a84c);
+  background-size: 200% 200%;
+  animation: gold-shift 6s ease infinite;
+}
+
+.gold-button .shimmer-sweep {
+  opacity: 0;
+}
+
+.gold-button:hover .shimmer-sweep {
+  opacity: 1;
+  animation: shimmer-sweep 0.9s ease;
+}
+
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  background-size: 200% 100%;
+  animation: divider-run 2.4s linear infinite;
+}
+
+@keyframes glitter {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-120%); background: linear-gradient(100deg, transparent, rgba(255,255,255,0.45), transparent); }
+  100% { transform: translateX(120%); background: linear-gradient(100deg, transparent, rgba(255,255,255,0.45), transparent); }
+}
+
+@keyframes gold-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer-line {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes divider-run {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
