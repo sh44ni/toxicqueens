@@ -22,8 +22,14 @@ export function Contact() {
             <GoldButton label="Facebook" onAction={() => window.open("https://facebook.com", "_blank")} />
           </div>
         </div>
-        <div className="glass-card flex min-h-72 items-center justify-center p-6 text-center text-gold-muted">
-          Placeholder de mapa embebido para ubicación del estudio.
+        <div className="glass-card overflow-hidden rounded-xl">
+          <iframe
+            title="Ubicación Toxic Queens Beauty Studio"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3338.716610392204!2d-117.263!3d33.2005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDEyJzAyLjAiTiAxMTfCsDE1JzQ2LjgiVw!5e0!3m2!1ses-419!2sus!4v1700000000000"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-72 w-full border-0"
+          />
         </div>
       </div>
     </section>
